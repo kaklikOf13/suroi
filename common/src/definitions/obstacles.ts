@@ -346,6 +346,7 @@ export const Obstacles = ObjectDefinitions.create<ObstacleDefinition>()(
             zIndex: ZIndexes.ObstaclesLayer4,
             allowFlyover: FlyoverPref.Never
         },
+        
         {
             idString: "christmas_tree",
             name: "Christmas Tree",

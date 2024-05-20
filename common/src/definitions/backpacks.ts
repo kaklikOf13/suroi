@@ -27,19 +27,19 @@ export const Backpacks = ObjectDefinitions.create<BackpackDefinition>()(
             name: "Bag",
             level: 0,
             maxCapacity: {
-                gauze: 5,
-                medikit: 1,
-                cola: 2,
-                tablets: 1,
-                "12g": 15,
-                "556mm": 90,
-                "762mm": 90,
-                "9mm": 120,
-                "127mm": 10,
+                gauze: 20,
+                medikit: 5,
+                cola: 10,
+                tablets: 5,
+                "12g": 100,
+                "556mm": 200,
+                "762mm": 200,
+                "9mm": 200,
+                "127mm": 50,
                 power_cell: Infinity,
-                curadell: 1,
-                frag_grenade: 3,
-                smoke_grenade: 3
+                curadell: 4,
+                frag_grenade: 6,
+                smoke_grenade: 6
             },
             noDrop: true
         },
@@ -48,19 +48,19 @@ export const Backpacks = ObjectDefinitions.create<BackpackDefinition>()(
             {
                 level: 1,
                 maxCapacity: {
-                    gauze: 10,
-                    medikit: 2,
-                    cola: 5,
-                    tablets: 2,
-                    "12g": 30,
-                    "556mm": 180,
-                    "762mm": 180,
-                    "9mm": 240,
-                    "127mm": 20,
+                    gauze: 40,
+                    medikit: 10,
+                    cola: 10,
+                    tablets: 10,
+                    "12g": 200,
+                    "556mm": 400,
+                    "762mm": 400,
+                    "9mm": 400,
+                    "127mm": 100,
                     power_cell: Infinity,
-                    curadell: 2,
-                    frag_grenade: 6,
-                    smoke_grenade: 6
+                    curadell: 8,
+                    frag_grenade: 12,
+                    smoke_grenade: 12
                 }
             },
             "Basic"
@@ -70,19 +70,19 @@ export const Backpacks = ObjectDefinitions.create<BackpackDefinition>()(
             {
                 level: 2,
                 maxCapacity: {
-                    gauze: 15,
-                    medikit: 3,
-                    cola: 10,
-                    tablets: 3,
-                    "12g": 60,
-                    "556mm": 240,
-                    "762mm": 240,
-                    "9mm": 330,
-                    "127mm": 40,
+                    gauze: 80,
+                    medikit: 20,
+                    cola: 40,
+                    tablets: 20,
+                    "12g": 400,
+                    "556mm": 800,
+                    "762mm": 800,
+                    "9mm": 800,
+                    "127mm": 200,
                     power_cell: Infinity,
-                    curadell: 3,
-                    frag_grenade: 9,
-                    smoke_grenade: 9
+                    curadell: 16,
+                    frag_grenade: 24,
+                    smoke_grenade: 24
                 }
             },
             "Regular"
@@ -92,19 +92,19 @@ export const Backpacks = ObjectDefinitions.create<BackpackDefinition>()(
             {
                 level: 3,
                 maxCapacity: {
-                    gauze: 30,
-                    medikit: 4,
-                    cola: 15,
-                    tablets: 4,
-                    "12g": 90,
-                    "556mm": 300,
-                    "762mm": 300,
-                    "9mm": 420,
-                    "127mm": 80,
+                    gauze: 80,
+                    medikit: 40,
+                    cola: 80,
+                    tablets: 40,
+                    "12g": 999,
+                    "556mm": 999,
+                    "762mm": 999,
+                    "9mm": 999,
+                    "127mm": 999,
                     power_cell: Infinity,
-                    curadell: 4,
-                    frag_grenade: 12,
-                    smoke_grenade: 12
+                    curadell: 32,
+                    frag_grenade: 99,
+                    smoke_grenade: 99
                 }
             },
             "Tactical"

@@ -1161,6 +1161,7 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         this.downed = false;
         this.canDespawn = false;
         this.team?.setDirty();
+        this.game.addExplosion("Die",this.position,this)
 
         let action: Action | undefined;
         if ((action = this.beingRevivedBy?.action) instanceof ReviveAction) {

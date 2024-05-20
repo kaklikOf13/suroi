@@ -17,7 +17,264 @@ export interface LootTable {
     readonly max: number
     readonly loot: WeightedItem[] | WeightedItem[][]
 }
-
+var bigloot = [].concat(... new Array(1).fill([
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_equipment", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_scopes", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_healing_items", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_melee", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_melee", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_melee", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 },
+        { tier: "ammo", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { tier: "gold_airdrop_guns", weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ],
+    [
+        { item: "frag_grenade", count: 3, weight: 1 }
+    ]
+]));
 // TODO Refactor loot table system
 export const LootTables: Record<string, LootTable> = {
     ground_loot: {
@@ -31,7 +288,7 @@ export const LootTables: Record<string, LootTable> = {
             { tier: "scopes", weight: 0.3 }
         ]
     },
-    regular_crate: {
+    /*regular_crate: {
         min: 1,
         max: 1,
         loot: [
@@ -44,6 +301,11 @@ export const LootTables: Record<string, LootTable> = {
             { tier: "throwables", weight: 0.3 },
             { tier: "melee", weight: 0.04 }
         ]
+    },*/
+    regular_crate: {
+        min: 1,
+        max: 1,
+        loot: bigloot
     },
     viking_chest: {
         min: 1,
@@ -113,10 +375,7 @@ export const LootTables: Record<string, LootTable> = {
     grenade_box: {
         min: 1,
         max: 1,
-        loot: [
-            { item: "frag_grenade", weight: 1, count: 2 },
-            { item: "smoke_grenade", weight: 1, count: 2 }
-        ]
+        loot: bigloot
     },
     melee_crate: {
         min: 2,
@@ -222,15 +481,18 @@ export const LootTables: Record<string, LootTable> = {
         ]
     },
     box: {
-        min: 1,
+        /*min: 1,
         max: 1,
         loot: [
             { tier: "ammo", weight: 1.2 },
             { tier: "healing_items", weight: 1 },
             { tier: "equipment", weight: 1 },
-            { tier: "guns", weight: 0.5 },
+            { tier: "guns", weight: 3 },
             { tier: "scopes", weight: 0.3 }
-        ]
+        ]*/
+        min: 1,
+        max: 1,
+        loot: bigloot
     },
     bookshelf: {
         min: 1,
@@ -338,63 +600,12 @@ export const LootTables: Record<string, LootTable> = {
     airdrop_crate: {
         min: 1,
         max: 1,
-        loot: [
-            [
-                { tier: "airdrop_equipment", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_scopes", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_healing_items", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_skins", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_melee", weight: 1 }
-            ],
-            [
-                { tier: "ammo", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_guns", weight: 1 }
-            ],
-            [
-                { item: "frag_grenade", count: 3, weight: 2 },
-                { item: null, weight: 1 }
-            ]
-        ]
+        loot: [].concat(... new Array(7).fill(bigloot))
     },
     gold_airdrop_crate: {
         min: 1,
         max: 1,
-        loot: [
-            [
-                { tier: "airdrop_equipment", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_scopes", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_healing_items", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_skins", weight: 1 }
-            ],
-            [
-                { tier: "airdrop_melee", weight: 1 }
-            ],
-            [
-                { tier: "ammo", weight: 1 }
-            ],
-            [
-                { tier: "gold_airdrop_guns", weight: 1 }
-            ],
-            [
-                { item: "frag_grenade", count: 3, weight: 1 }
-            ]
-        ]
+        loot: [].concat(... new Array(10).fill(bigloot))
     },
     flint_stone: {
         min: 1,
@@ -549,10 +760,10 @@ export const LootTiers: Record<string, WeightedItem[]> = {
         { item: "tactical_pack", weight: 0.01 }
     ],
     ammo: [
-        { item: "12g", count: 10, weight: 0.75 },
-        { item: "556mm", count: 60, weight: 1 },
-        { item: "762mm", count: 60, weight: 1 },
-        { item: "9mm", count: 60, weight: 1 }
+        { item: "12g", count: 50, weight: 0.75 },
+        { item: "556mm", count: 50, weight: 1 },
+        { item: "762mm", count: 50, weight: 1 },
+        { item: "9mm", count: 100, weight: 1 }
     ],
     throwables: [
         { item: "frag_grenade", count: 2, weight: 1 },
@@ -629,10 +840,10 @@ export const LootTiers: Record<string, WeightedItem[]> = {
         { item: "15x_scope", weight: 0.0025 }
     ],
     airdrop_healing_items: [
-        { item: "gauze", count: 5, weight: 1.5 },
-        { item: "medikit", weight: 1 },
-        { item: "cola", weight: 1 },
-        { item: "tablets", weight: 1 }
+        { item: "gauze", count: 20, weight: 1.5 },
+        { item: "medikit", weight:5 },
+        { item: "cola", weight: 10 },
+        { item: "tablets", weight: 10 }
     ],
     airdrop_skins: [
         { item: null, weight: 1 },
@@ -667,7 +878,7 @@ export const LootTiers: Record<string, WeightedItem[]> = {
         { item: "mg5", weight: 1 },
         { item: "barrett", weight: 0.5 },
         { item: "model_89", weight: 0.5 },
-        { item: "g19", weight: 0.0005 }
+        { item: "deathray", weight: 0.3 }
     ],
     winter_skins: [
         { item: "peppermint", weight: 1 },

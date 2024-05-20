@@ -41,7 +41,7 @@ export const HealingItems = ObjectDefinitions.create<HealingItemDefinition>()(
             "health_factory",
             {
                 restoreAmount: 15,
-                useTime: 3,
+                useTime: 1,
                 useText: "Applying"
             },
             [],
@@ -51,7 +51,7 @@ export const HealingItems = ObjectDefinitions.create<HealingItemDefinition>()(
             "health_factory",
             {
                 restoreAmount: 100,
-                useTime: 6,
+                useTime: 4,
                 useText: "Using"
             },
             [],
@@ -60,8 +60,8 @@ export const HealingItems = ObjectDefinitions.create<HealingItemDefinition>()(
         apply(
             "adren_factory",
             {
-                restoreAmount: 25,
-                useTime: 3,
+                restoreAmount: 50,
+                useTime: 1,
                 useText: "Drinking"
             },
             [],
@@ -70,8 +70,8 @@ export const HealingItems = ObjectDefinitions.create<HealingItemDefinition>()(
         apply(
             "adren_factory",
             {
-                restoreAmount: 50,
-                useTime: 5,
+                restoreAmount: 200,
+                useTime: 3,
                 useText: "Taking"
             },
             [],

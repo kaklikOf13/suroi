@@ -626,18 +626,18 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
             name: "Barrett M95",
             ammoType: "127mm",
             ammoSpawnAmount: 20,
-            capacity: 5,
+            capacity: 100,
             reloadTime: 3.4,
-            fireDelay: 1400,
-            switchDelay: 900,
+            fireDelay:600,
+            switchDelay: 200,
             speedMultiplier: 0.92,
             recoilMultiplier: 0.3,
             recoilDuration: 1500,
-            fireMode: FireMode.Single,
+            fireMode: FireMode.Auto,
             shotSpread: 0.5,
             moveSpread: 4,
             length: 9.2,
-            shootOnRelease: true,
+            shootOnRelease: false,
             fists: {
                 left: Vec.create(115, -4),
                 right: Vec.create(40, 0),
@@ -767,7 +767,7 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
         {
             idString: "radio",
             name: "Radio",
-            summonAirdrop: true,
+            summonAirdrop: false,
             ammoType: "curadell",
             ammoSpawnAmount: 1,
             fireDelay: 500,
@@ -796,12 +796,12 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
             capacity: 1,
             reloadTime: 1.4,
             ballistics: {
-                tracer: {
+                /*tracer: {
                     image: "radio_wave",
                     opacity: 0.8,
                     particle: true,
                     zIndex: ZIndexes.BuildingsCeiling
-                },
+                },*/
                 damage: 0,
                 obstacleMultiplier: 1,
                 speed: 0.01,
@@ -1665,7 +1665,8 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
         {
             idString: "deathray",
             name: "Death Ray",
-            ammoType: "power_cell",
+            ammoType: "curadell",
+            ammoSpawnAmount:4,
             capacity: 1,
             reloadTime: 1.4,
             fireDelay: 40,
@@ -1690,7 +1691,7 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
                 on: "reload"
             }],
             ballistics: {
-                damage: 800,
+                damage: 130,
                 obstacleMultiplier: 2,
                 speed: 4,
                 range: 800,

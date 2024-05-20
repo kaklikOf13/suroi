@@ -7,7 +7,7 @@ import { removeFrom } from "./utils/misc";
 import { type CustomTeamMessage, CustomTeamMessageType } from "../../common/src/team";
 import { customTeams, findGame } from "./server";
 
-export const teamMode = Config.maxTeamSize > TeamSize.Solo;
+export const teamMode = true//Config.maxTeamSize > TeamSize.Solo;
 
 export class Team {
     readonly id: number;

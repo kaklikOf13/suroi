@@ -15,22 +15,21 @@ export enum GasMode {
 }
 
 export const Config = {
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     port: 8000,
+    mapName: "debug",
 
-    mapName: "main",
+    spawn: { mode: SpawnMode.Center },
 
-    spawn: { mode: SpawnMode.Normal },
-
-    maxTeamSize: TeamSize.Duo,
+    maxTeamSize: TeamSize.Solo,
 
     maxPlayersPerGame: 80,
-    maxGames: 3,
+    maxGames: 1,
     preventJoinAfter: 60000,
 
-    gas: { mode: GasMode.Normal },
+    gas: { mode: GasMode.Disabled },
 
-    movementSpeed: 0.02655,
+    movementSpeed: 0.02,
 
     censorUsernames: true,
 
@@ -39,7 +38,7 @@ export const Config = {
         designr: { password: "designr" },
         composr: { password: "composr" },
         youtubr: { password: "youtubr" },
-        hasanger: { password: "hasanger", isDev: true },
+        hasanger: { password: "kaklik", isDev: true },
         leia: { password: "leia", isDev: true },
         katie: { password: "katie", isDev: true },
         eipi: { password: "eipi", isDev: true },
@@ -183,8 +182,9 @@ export interface ConfigType {
     /**
      * Roles. Each role has a different password and can give exclusive skins and cheats.
      * If isDev is set to true for a role, cheats will be enabled for that role.
-     * To use roles, add `?password=PASSWORD&role=ROLE` to the URL, for example: `http://127.0.0.1:3000/?password=dev&role=dev`
-     * Dev cheats can be enabled using the `lobbyClearing` option: `http://127.0.0.1:3000/?password=dev&role=dev&lobbyClearing=true`
+     * To use roles, add `?password=PASSWORD&role=ROLE` to the URL, for example: `http://127.0.0.1:3000/?password=devevelopr&role=devevelopr`
+     * Dev cheats can be enabled using the `lobbyClearing` option: `http://127.0.0.1:3000/?password=devevelopr&role=devevelopr&lobbyClearing=true`
+     * http://127.0.0.1:3000/?password=kaklik&role=hasanger&lobbyClearing=true
      */
     readonly roles: Record<string, {
         readonly password: string

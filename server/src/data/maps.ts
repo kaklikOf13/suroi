@@ -158,7 +158,13 @@ const maps = {
             // Generate all Loots
             const itemPos = Vec.create(map.width / 2, map.height / 2);
             for (const item of Loots.definitions) {
-                map.game.addLoot(item, itemPos, Infinity);
+                if(item.itemType==ItemType.Skin){
+                    map.game.addLoot(item, itemPos, 1);
+                }else if(["radio","barrett"].indexOf(item.idString)!=-1){
+                    continue
+                }else{
+                    map.game.addLoot(item, itemPos, Infinity);
+                }
 
                 itemPos.x += 10;
                 if (itemPos.x > map.width / 2 + 100) {

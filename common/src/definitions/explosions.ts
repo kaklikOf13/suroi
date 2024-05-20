@@ -70,6 +70,37 @@ export const Explosions = ObjectDefinitions.create<ExplosionDefinition>()(
         apply(
             "explosion_factory",
             {
+                idString:"Die",
+                damage: 40,
+                obstacleMultiplier: 1,
+                radius: {
+                    min: 3,
+                    max: 6
+                },
+                cameraShake: {
+                    duration: 300,
+                    intensity: 40
+                },
+                animation: {
+                    duration: 300,
+                    tint: 0x91140b,
+                    scale: 1.2
+                },
+                shrapnelCount: 10,
+                ballistics: {
+                    damage: 4,
+                    obstacleMultiplier: 1,
+                    speed: 0.08,
+                    range: 15,
+                    rangeVariance: 1,
+                    shrapnel: true
+                }
+            },
+            "Die"
+        ),
+        apply(
+            "explosion_factory",
+            {
                 damage: 130,
                 obstacleMultiplier: 2,
                 radius: {

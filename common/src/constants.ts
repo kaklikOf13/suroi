@@ -143,22 +143,22 @@ export const GameConstants = freezeDeep({
     bleedOutDPMs: 0.002, // === 2 dps
     maxPosition: 1632,
     player: {
-        radius: 2.25,
+        radius: 2,
         nameMaxLength: 16,
         defaultName: "Player",
         defaultSkin: "hazel_jumpsuit",
-        defaultHealth: 100,
-        maxAdrenaline: 100,
+        defaultHealth: 200,
+        maxAdrenaline: 200,
         inventorySlotTypings,
         maxWeapons: inventorySlotTypings.length,
         killLeaderMinKills: 3,
         maxMouseDist: 128,
-        reviveTime: 8,
+        reviveTime: 5,
         maxReviveDist: 5
     },
     airdrop: {
-        fallTime: 8000,
-        flyTime: 30000,
+        fallTime:5000,
+        flyTime: 5000,
         damage: 300
     }
 });

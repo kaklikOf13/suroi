@@ -552,9 +552,10 @@ export class UIManager {
 
             const itemDef = Loots.fromString(item);
 
-            $(`#${item}-count`).text(count);
+            $(`#${item}-count`).text(count.toString());
 
             const itemSlot = $(`#${item}-slot`);
+
             if (this.game.activePlayer) {
                 const backpack = this.game.activePlayer.equipment.backpack;
                 itemSlot.toggleClass("full", count >= backpack.maxCapacity[item]);

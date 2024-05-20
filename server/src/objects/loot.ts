@@ -18,6 +18,7 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
     override readonly type = ObjectCategory.Loot;
     override readonly fullAllocBytes = 8;
     override readonly partialAllocBytes = 4;
+    freeze:boolean=false
 
     declare readonly hitbox: CircleHitbox;
 
@@ -41,7 +42,7 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
      */
     private static readonly _dragConstant = Math.exp(-3.69 / GameConstants.tickrate);
 
-    constructor(game: Game, definition: ReifiableDef<LootDefinition>, position: Vector, count?: number) {
+    constructor(game: Game, definition: ReifiableDef<LootDefinition>, position: Vector, count?: number,freeze:boolean=false) {
         super(game, position);
 
         this.definition = Loots.reify(definition);
@@ -50,7 +51,7 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
         if ((this._count = count ?? 1) <= 0) {
             throw new RangeError("Loot 'count' cannot be less than or equal to 0");
         }
-
+        this.freeze=freeze
         this.push(randomRotation(), 0.003);
 
         this.game.addTimeout(() => { this.isNew = false; }, 100);
@@ -91,43 +92,44 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
             return displacement;
         };
 
-        this.position = Vec.add(this.position, calculateSafeDisplacement());
-        this.velocity = Vec.scale(this.velocity, Loot._dragConstant);
+        if(!this.freeze){
+            this.position = Vec.add(this.position, calculateSafeDisplacement());
+            this.velocity = Vec.scale(this.velocity, Loot._dragConstant);
 
-        this.position = Vec.add(this.position, calculateSafeDisplacement());
-        this.position.x = Numeric.clamp(this.position.x, this.hitbox.radius, this.game.map.width - this.hitbox.radius);
-        this.position.y = Numeric.clamp(this.position.y, this.hitbox.radius, this.game.map.height - this.hitbox.radius);
-
-        const objects = this.game.grid.intersectsHitbox(this.hitbox);
-        for (const object of objects) {
-            if (
-                moving &&
-                object instanceof Obstacle &&
-                object.collidable &&
-                object.hitbox.collidesWith(this.hitbox)
-            ) {
-                this.hitbox.resolveCollision(object.hitbox);
-            }
-
-            if (object instanceof Loot && object !== this && object.hitbox.collidesWith(this.hitbox)) {
-                const collision = Collision.circleCircleIntersection(this.position, this.hitbox.radius, object.position, object.hitbox.radius);
-                if (collision) {
-                    this.velocity = Vec.sub(this.velocity, Vec.scale(collision.dir, 0.0005));
+            this.position = Vec.add(this.position, calculateSafeDisplacement());
+            this.position.x = Numeric.clamp(this.position.x, this.hitbox.radius, this.game.map.width - this.hitbox.radius);
+            this.position.y = Numeric.clamp(this.position.y, this.hitbox.radius, this.game.map.height - this.hitbox.radius);
+            const objects = this.game.grid.intersectsHitbox(this.hitbox);
+            for (const object of objects) {
+                if (
+                    moving &&
+                    object instanceof Obstacle &&
+                    object.collidable &&
+                    object.hitbox.collidesWith(this.hitbox)
+                ) {
+                    this.hitbox.resolveCollision(object.hitbox);
                 }
 
-                const dist = Math.max(Geometry.distance(object.position, this.position), 1);
-                const vecCollision = Vec.create(object.position.x - this.position.x, object.position.y - this.position.y);
-                const vecCollisionNorm = Vec.create(vecCollision.x / dist, vecCollision.y / dist);
-                const vRelativeVelocity = Vec.create(this.velocity.x - object.velocity.x, this.velocity.y - object.velocity.y);
+                if (object instanceof Loot && object !== this && object.hitbox.collidesWith(this.hitbox)) {
+                    const collision = Collision.circleCircleIntersection(this.position, this.hitbox.radius, object.position, object.hitbox.radius);
+                    if (collision) {
+                        this.velocity = Vec.sub(this.velocity, Vec.scale(collision.dir, 0.0005));
+                    }
 
-                const speed = (vRelativeVelocity.x * vecCollisionNorm.x + vRelativeVelocity.y * vecCollisionNorm.y) * 0.5;
+                    const dist = Math.max(Geometry.distance(object.position, this.position), 1);
+                    const vecCollision = Vec.create(object.position.x - this.position.x, object.position.y - this.position.y);
+                    const vecCollisionNorm = Vec.create(vecCollision.x / dist, vecCollision.y / dist);
+                    const vRelativeVelocity = Vec.create(this.velocity.x - object.velocity.x, this.velocity.y - object.velocity.y);
 
-                if (speed < 0) continue;
+                    const speed = (vRelativeVelocity.x * vecCollisionNorm.x + vRelativeVelocity.y * vecCollisionNorm.y) * 0.5;
 
-                this.velocity.x -= speed * vecCollisionNorm.x;
-                this.velocity.y -= speed * vecCollisionNorm.y;
-                object.velocity.x += speed * vecCollisionNorm.x;
-                object.velocity.y += speed * vecCollisionNorm.y;
+                    if (speed < 0) continue;
+
+                    this.velocity.x -= speed * vecCollisionNorm.x;
+                    this.velocity.y -= speed * vecCollisionNorm.y;
+                    object.velocity.x += speed * vecCollisionNorm.x;
+                    object.velocity.y += speed * vecCollisionNorm.y;
+                }
             }
         }
 
@@ -138,7 +140,9 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
     }
 
     push(angle: number, velocity: number): void {
-        this.velocity = Vec.add(this.velocity, Vec.fromPolar(angle, velocity));
+        if(!this.freeze){
+            this.velocity = Vec.add(this.velocity, Vec.fromPolar(angle, velocity));
+        }   
     }
 
     canInteract(player: Player): boolean {
@@ -206,7 +210,7 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
         if (this.dead) return;
         const createNewItem = (type: LootDefinition = this.definition): void => {
             this.game
-                .addLoot(type, this.position, this._count)
+                .addLoot(type, this.position, this._count,this.freeze)
                 .push(player.rotation + Math.PI, 0.0007);
         };
 

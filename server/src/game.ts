@@ -610,12 +610,13 @@ export class Game {
      * that many `Loot` objects, but rather how many the singular `Loot` object will contain)
      * @returns The created loot object
      */
-    addLoot(definition: ReifiableDef<LootDefinition>, position: Vector, count?: number): Loot {
+    addLoot(definition: ReifiableDef<LootDefinition>, position: Vector, count?: number,freeze:boolean=false): Loot {
         const loot = new Loot(
             this,
             definition,
             position,
-            count
+            count,
+            freeze
         );
 
         this.grid.addObject(loot);

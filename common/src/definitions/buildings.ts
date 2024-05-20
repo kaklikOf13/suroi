@@ -366,8 +366,8 @@ export const Buildings = ObjectDefinitions.create<BuildingDefinition>()(
                 { idString: "regular_crate", position: Vec.create(14, 28.5) },
                 { idString: warehouseObstacle, position: Vec.create(-14, 28.5) },
 
-                { idString: "ammo_crate", position: Vec.create(-14, 0) },
-                { idString: "ammo_crate", position: Vec.create(14, 0) },
+                { idString: "regular_crate", position: Vec.create(-14, 0) },
+                { idString: "regular_crate", position: Vec.create(14, 0) },
 
                 { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(-16.6, -11.25, -14.93, -8.03); } },
                 { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(-16.6, -11.25, 14.93, 8.03); } },
