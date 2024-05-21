@@ -1,17 +1,32 @@
 export const Config = {
     regions: {
-        dev: { name: "Local Server", address: "kaklik.me:8000", https: false },
+        dev: { name: "Local Server", mainAddress: "http://kaklik.me:8000",gameAddress:"ws://kaklik.me:800<ID>"},
     },
     defaultRegion: "dev",
     mode: "halloween"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {
-    readonly regions: Record<string, {
-        readonly name: string
-        readonly address: string
-        readonly https: boolean
-    }>
+    readonly regions: Record<string, Region>
     readonly defaultRegion: string
     readonly mode: string
+}
+
+export interface Region {
+    /**
+     * The human-readable name of the region, displayed in the server selector.
+     */
+    readonly name: string
+
+    /**
+     * The address of the region's main server.
+     */
+    readonly mainAddress: string
+
+    /**
+     * Pattern used to determine the address of the region's game servers.
+     * The string <ID> is replaced by the gameID given by the /getGame API, plus one.
+     * For example, if gameID is 0, and gameAddress is "ws://127.0.0.1:800<ID>", the resulting address will be ws://127.0.0.1:8001.
+     */
+    readonly gameAddress: string
 }

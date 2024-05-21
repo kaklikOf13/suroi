@@ -54,7 +54,10 @@ export class Loot extends BaseGameObject<ObjectCategory.Loot> {
         this.freeze=freeze
         this.push(randomRotation(), 0.003);
 
-        this.game.addTimeout(() => { this.isNew = false; }, 100);
+        this.game.addTimeout(() => {
+            this.isNew = false;
+            this.setDirty();
+        }, 100);
     }
 
     update(): void {
